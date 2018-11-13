@@ -1,11 +1,13 @@
 #pragma once
 
+// FOR USE BY HAZEL'S APPLICATION
+
 // Standard lib
 #include <stdio.h>
 
-// FOR USE BY HAZEL'S APPLICATION
 #include "Hazel/Application.h"
+#include "Hazel/Log.h"
 
-// -- Entry point-----------
+// ----------- Entry point -----------
 #include "Hazel/EntryPoint.h"
-// -- Entry point-----------
+// ----------- Entry point -----------
