@@ -2,9 +2,6 @@
 
 // FOR USE BY HAZEL'S APPLICATION
 
-// Standard lib
-#include <stdio.h>
-
 #include "Hazel/Application.h"
 #include "Hazel/Log.h"
 

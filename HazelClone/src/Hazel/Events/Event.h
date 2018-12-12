@@ -2,8 +2,6 @@
 
 #include "Hazel/Core.h"
 
-#include <string>
-#include <functional>
 
 /*						CURRENTLY: BLOCKING EVENTS
  * Blocking Event means whenever an event occurs, it immediately gets dispatched and must be dealt immediately
