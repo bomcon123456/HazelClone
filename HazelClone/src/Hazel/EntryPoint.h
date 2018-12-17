@@ -10,7 +10,6 @@ int main(int argc, char** argv)
 	int a = 100;
 	HZ_INFO("Hello! Var={0}",a);
 
-	printf("Hazel Clone.");
 	auto app = Hazel::CreateApplication();
 	app->Run();
 
