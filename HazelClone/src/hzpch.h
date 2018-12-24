@@ -3,9 +3,8 @@
 #include <iostream>
 #include <memory>
 #include <utility>
-#include <functional>
-#include <stdio.h>
 #include <algorithm>
+#include <functional>
 
 #include <string>
 #include <sstream>
@@ -16,5 +15,5 @@
 #include "Hazel/Log.h"
 
 #ifdef HZ_PLATFORM_WINDOWS
-	#include "Windows.h"
+	#include <Windows.h>
 #endif

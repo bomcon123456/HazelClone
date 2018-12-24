@@ -49,7 +49,7 @@ project "HazelClone"
 	filter "system:windows"
 		cppdialect "C++17"
 		staticruntime "On"
-		systemversion "10.0.17134.0"
+		systemversion "latest"
 
 		defines
 		{
@@ -62,17 +62,17 @@ project "HazelClone"
 			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/SandBox")
 		}
 
-		filter "configurations:Debug"
-			defines "HZ_DEBUG"
-			symbols "On"
+	filter "configurations:Debug"
+		defines "HZ_DEBUG"
+		symbols "On"
 			
-		filter "configurations:Release"
-			defines "HZ_RELEASE"
-			optimize "On"
+	filter "configurations:Release"
+		defines "HZ_RELEASE"
+		optimize "On"
 
-		filter "configurations:Dist"
-			defines "HZ_DIST"
-			optimize "On"
+	filter "configurations:Dist"
+		defines "HZ_DIST"
+		optimize "On"
 			
 
 project "SandBox"
@@ -95,30 +95,30 @@ project "SandBox"
 		"HazelClone/src"
 	}
 
+	links
+	{
+		"HazelClone"
+	}
+
 	filter "system:windows"
 		cppdialect "C++17"
 		staticruntime "On"
-		systemversion "10.0.17134.0"
+		systemversion "latest"
 
 		defines
 		{
 			"HZ_PLATFORM_WINDOWS"
 		}
 
-		links
-		{
-			"HazelClone"
-		}
+	filter "configurations:Debug"
+		defines "HZ_DEBUG"
+		symbols "On"
 
-		filter "configurations:Debug"
-			defines "HZ_DEBUG"
-			symbols "On"
-			
-		filter "configurations:Release"
-			defines "HZ_RELEASE"
-			optimize "On"
+	filter "configurations:Release"
+		defines "HZ_RELEASE"
+		optimize "On"
 
-		filter "configurations:Dist"
-			defines "HZ_DIST"
-			optimize "On"
+	filter "configurations:Dist"
+		defines "HZ_DIST"
+		optimize "On"
 			

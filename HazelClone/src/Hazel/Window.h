@@ -5,22 +5,29 @@
 #include "Hazel/Core.h"
 #include "Hazel/Events/Event.h"
 
-namespace Hazel 
-{
+namespace Hazel {
+
 	struct WindowProps
 	{
 		std::string Title;
-		unsigned int Width, Height;
-		WindowProps(const std::string& title = "Hazel Engine", unsigned int width = 1280,
-			unsigned int height = 720) : Title(title), Width(width), Height(height) {}
+		unsigned int Width;
+		unsigned int Height;
+
+		WindowProps(const std::string& title = "Hazel Engine",
+			        unsigned int width = 1280,
+			        unsigned int height = 720)
+			: Title(title), Width(width), Height(height)
+		{
+		}
 	};
 
+	// Interface representing a desktop system based Window
 	class HAZEL_API Window
 	{
 	public:
 		using EventCallbackFn = std::function<void(Event&)>;
 
-		virtual ~Window() {};
+		virtual ~Window() {}
 
 		virtual void OnUpdate() = 0;
 
@@ -33,6 +40,6 @@ namespace Hazel
 		virtual bool IsVSync() const = 0;
 
 		static Window* Create(const WindowProps& props = WindowProps());
-	private:
 	};
+
 }
