@@ -10,16 +10,19 @@ workspace "HazelClone"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
--- Include  directories relative to root folder
+-- Include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "HazelClone/vendor/GLFW/include"
+IncludeDir["Glad"] = "HazelClone/vendor/Glad/include"
 
 include "HazelClone/vendor/GLFW"
+include "HazelClone/vendor/Glad"
 
 project "HazelClone"
 	location "HazelClone"
 	kind "SharedLib"
 	language "C++"
+
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -37,12 +40,14 @@ project "HazelClone"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 
-	links
-	{
+	links 
+	{ 
 		"GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 
@@ -54,7 +59,8 @@ project "HazelClone"
 		defines
 		{
 			"HZ_PLATFORM_WINDOWS",
-			"HZ_BUILD_DLL"
+			"HZ_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands
