@@ -6,3 +6,6 @@
 	path = HazelClone/vendor/GLFW
 
 	url = git://github.com/TheCherno/GLFW
+[submodule "HazelClone/vendor/imgui"]
+	path = HazelClone/vendor/imgui
+	url = https://github.com/TheCherno/imgui
